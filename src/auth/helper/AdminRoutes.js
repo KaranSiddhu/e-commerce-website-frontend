@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { isAutheticated } from './index';
+import { isAuthenticated } from './index';
 
 const AdminRoutes = ({ component: Component, ...rest }) => {
     
@@ -8,7 +8,7 @@ const AdminRoutes = ({ component: Component, ...rest }) => {
       <Route
         {...rest}
         render={props =>
-          isAutheticated() && (isAutheticated().User.role === 1) ? (
+          isAuthenticated() && (isAuthenticated().User.role === 1) ? (
             <Component {...props} />
           ) : (
             <Redirect

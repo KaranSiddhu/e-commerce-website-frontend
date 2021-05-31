@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Base from "../core/Base";
 import { Link, Redirect } from "react-router-dom";
 import { API } from "../backend";
-import {signin, authenticate, isAutheticated} from '../auth/helper';
+import {signin, authenticate, isAuthenticated} from '../auth/helper';
 
 const Signin = () => {
 
@@ -15,7 +15,7 @@ const Signin = () => {
   });
 
   const { email, password, error, loading, didRedirect } = values;
-  const { User } = isAutheticated();
+  const { User } = isAuthenticated();
 
 
   const handleChange = val => event => {
@@ -64,7 +64,7 @@ const Signin = () => {
         return <Redirect to='/user/dashboard' />
       }
     }
-    if(isAutheticated()){
+    if(isAuthenticated()){
       return <Redirect to='/' />
     }
   }
